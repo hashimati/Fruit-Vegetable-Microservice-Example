@@ -1,0 +1,32 @@
+
+---
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+    enabled: true
+  instance:
+    instance-id: gateway
+    preferIpAddress: true
+
+---
+server.port: 8080
+
+---
+spring.application.name: gateway
+
+---
+---
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: fruit-service
+          uri: lb://fruit-service
+          predicates:
+            - Path=/api/v1/fruit/**
+
+        - id: vegetable-service
+          uri: lb://vegetable-service
+          predicates:
+            - Path=/api/v1/vegetable/**

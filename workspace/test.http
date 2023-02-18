@@ -1,0 +1,23 @@
+POST http://localhost:8080/api/v1/fruit/save
+Content-Type: application/json
+
+{
+    "name": "Apple",
+    "quantity": 100
+}
+
+###
+GET http://localhost:8080/api/v1/fruit/findAll
+
+###
+POST http://localhost:8080/api/v1/vegetable/save
+Content-Type: application/json
+
+{
+    "name": "Onion",
+    "quantity": 100
+}
+
+###
+GET http://localhost:8080/api/v1/vegetable/findAll
+
